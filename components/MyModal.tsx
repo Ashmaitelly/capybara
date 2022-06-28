@@ -34,7 +34,7 @@ const MyModal = ({
     >
       <View style={styles.container}>
         <View style={styles.imageContainter}>
-          <View style={styles.dismissHeaderFooter}></View>
+          <View style={[styles.dismiss, styles.dismissHeader]}></View>
           <Image
             style={styles.image}
             resizeMode="stretch"
@@ -44,7 +44,7 @@ const MyModal = ({
           />
           <Pressable
             onPress={() => setModalVisible(false)}
-            style={styles.dismissHeaderFooter}
+            style={[styles.dismiss, styles.dismissFooter]}
           >
             <Text style={styles.dismissText}>Ok</Text>
           </Pressable>
@@ -64,24 +64,30 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 450,
+    width: 350,
     height: 100,
   },
   image: {
-    width: 450,
+    width: 350,
     height: 250,
   },
-  dismissHeaderFooter: {
-    flex: 1,
-    flexDirection: 'column',
+  dismiss: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 450,
-    height: 1,
+    width: 350,
+    height: 50,
     backgroundColor: '#ff0',
   },
   dismissText: {
     fontSize: 20,
+  },
+  dismissHeader: {
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+  },
+  dismissFooter: {
+    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 20,
   },
 });
 

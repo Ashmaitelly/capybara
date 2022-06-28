@@ -15,7 +15,7 @@ export default function App() {
     <View style={styles.container}>
       <MyModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
       <Pressable style={styles.button} onPress={() => setModalVisible(true)}>
-        <Text style={styles.buttonText}>Press for a capybara image</Text>
+        <Text style={styles.buttonText}>Display Capybara Image</Text>
       </Pressable>
     </View>
   );
