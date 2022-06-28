@@ -9,7 +9,9 @@ export default function App() {
     <View style={styles.container}>
       <MyModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
       <Pressable style={styles.button} onPress={() => setModalVisible(true)}>
-        <Text>Press for a random image of a capybara</Text>
+        <Text style={styles.buttonText}>
+          Press for a random image of a capybara
+        </Text>
       </Pressable>
     </View>
   );
@@ -24,12 +26,14 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    width: 250,
-    height: 50,
+    width: 300,
+    height: 100,
     backgroundColor: '#0f0',
     alignContent: 'center',
     justifyContent: 'center',
+    borderRadius: 20,
   },
+  buttonText: { fontSize: 16, fontWeight: 'bold' },
   image: {
     width: 200,
     height: 200,

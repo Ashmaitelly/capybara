@@ -27,6 +27,7 @@ const MyModal = ({
     <Modal
       visible={modalVisible}
       transparent
+      animationType="fade"
       onRequestClose={() => {
         setModalVisible(false);
       }}
