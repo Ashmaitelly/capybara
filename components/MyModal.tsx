@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Modal, View, StyleSheet, Image } from 'react-native';
+import { Modal, View, StyleSheet, Image, Pressable, Text } from 'react-native';
 import axios from 'axios';
 
 const MyModal = ({
@@ -34,13 +34,20 @@ const MyModal = ({
     >
       <View style={styles.container}>
         <View style={styles.imageContainter}>
+          <View style={styles.dismissHeaderFooter}></View>
           <Image
             style={styles.image}
             resizeMode="stretch"
             source={{
               uri: img,
             }}
-          ></Image>
+          />
+          <Pressable
+            onPress={() => setModalVisible(false)}
+            style={styles.dismissHeaderFooter}
+          >
+            <Text style={styles.dismissText}>Ok</Text>
+          </Pressable>
         </View>
       </View>
     </Modal>
@@ -57,10 +64,24 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    width: 450,
+    height: 100,
   },
   image: {
     width: 450,
-    height: 350,
+    height: 250,
+  },
+  dismissHeaderFooter: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 450,
+    height: 1,
+    backgroundColor: '#ff0',
+  },
+  dismissText: {
+    fontSize: 20,
   },
 });
 

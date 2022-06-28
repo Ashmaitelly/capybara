@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Pressable, Modal } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  ImageBackground,
+} from 'react-native';
 import MyModal from './components/MyModal';
 
 export default function App() {
@@ -9,9 +15,7 @@ export default function App() {
     <View style={styles.container}>
       <MyModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
       <Pressable style={styles.button} onPress={() => setModalVisible(true)}>
-        <Text style={styles.buttonText}>
-          Press for a random image of a capybara
-        </Text>
+        <Text style={styles.buttonText}>Press for a capybara image</Text>
       </Pressable>
     </View>
   );
@@ -20,7 +24,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -31,11 +34,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#0f0',
     alignContent: 'center',
     justifyContent: 'center',
-    borderRadius: 20,
+    borderRadius: 24,
   },
   buttonText: { fontSize: 16, fontWeight: 'bold' },
   image: {
     width: 200,
     height: 200,
   },
+  background: { flex: 1, width: 400, height: 400 },
 });
