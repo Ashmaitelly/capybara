@@ -15,7 +15,7 @@ const MyModal = ({
   useEffect(() => {
     if (!modalVisible) {
       axios
-        .get('https://api.animality.xyz/img/capybara')
+        .get('https://api.animality.xyz/img/bunny')
         .then((res) => {
           setImg(res.data.link);
         })
