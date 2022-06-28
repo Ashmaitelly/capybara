@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, View, StyleSheet, Image } from 'react-native';
+import axios from 'axios';
 
 const MyModal = ({
   modalVisible,
   setModalVisible,
 }: {
   modalVisible: boolean;
-  setModalVisible: any;
+  setModalVisible: Function;
 }) => {
+  //image uri state
+  const [img, setImg] = useState<string>('');
+  //get random image
+  useEffect(() => {
+    if (!modalVisible) {
+      axios
+        .get('https://api.animality.xyz/img/capybara')
+        .then((res) => {
+          setImg(res.data.link);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [modalVisible]);
+
   return (
     <Modal
       visible={modalVisible}
@@ -17,11 +32,13 @@ const MyModal = ({
       }}
     >
       <View style={styles.container}>
-        <View style={styles.image}>
+        <View style={styles.imageContainter}>
           <Image
-            style={{ width: 200, height: 200 }}
+            style={styles.image}
             resizeMode="stretch"
-            source={require('../assets/capybara.jpg')}
+            source={{
+              uri: img,
+            }}
           ></Image>
         </View>
       </View>
@@ -35,17 +52,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  button: {
+  imageContainter: {
+    flex: 1,
     alignItems: 'center',
-    width: 150,
-    height: 50,
-    backgroundColor: '#0f0',
-    alignContent: 'center',
+    justifyContent: 'center',
   },
   image: {
-    width: 200,
-    height: 200,
-    backgroundColor: '#000',
+    width: 450,
+    height: 350,
   },
 });
 
