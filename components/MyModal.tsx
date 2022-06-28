@@ -64,18 +64,21 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
     width: 350,
     height: 100,
   },
   image: {
     width: 350,
     height: 250,
+    borderWidth: 5,
+    borderColor: '#ff0',
   },
   dismiss: {
     alignItems: 'center',
     justifyContent: 'center',
     width: 350,
-    height: 50,
+    height: 40,
     backgroundColor: '#ff0',
   },
   dismissText: {
