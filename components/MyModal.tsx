@@ -15,7 +15,7 @@ const MyModal = ({
   useEffect(() => {
     if (!modalVisible) {
       axios
-        .get('https://api.animality.xyz/img/bunny')
+        .get('https://api.animality.xyz/img/capybara')
         .then((res) => {
           setImg(res.data.link);
         })
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   image: {
     width: 350,
     height: 250,
-    borderWidth: 5,
+    borderWidth: 20,
     borderColor: '#ff0',
   },
   dismiss: {
