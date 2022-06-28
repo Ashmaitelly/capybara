@@ -1,11 +1,16 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Modal } from 'react-native';
+import MyModal from './components/MyModal';
 
 export default function App() {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <MyModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
+      <Pressable style={styles.button} onPress={() => setModalVisible(true)}>
+        <Text>Press for an image of a capybara</Text>
+      </Pressable>
     </View>
   );
 }
@@ -16,5 +21,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  button: {
+    alignItems: 'center',
+    width: 150,
+    height: 50,
+    backgroundColor: '#0f0',
+    alignContent: 'center',
+  },
+  image: {
+    width: 200,
+    height: 200,
   },
 });
